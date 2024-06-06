@@ -13,8 +13,7 @@ export class DataserviceService {
   private drawerState = new BehaviorSubject(false);
   currDrawerState = this.drawerState.asObservable();
 
-  changeUserRole(value:string)
-  {
+  changeUserRole(value:string){
     this.userRole.next(value);
   }
   

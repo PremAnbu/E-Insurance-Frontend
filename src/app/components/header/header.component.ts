@@ -12,9 +12,9 @@ import { DOWNLOAD_ICON, MENU_ICON, SEARCH_ICON } from 'src/assets/svg-icons';
 })
 export class HeaderComponent implements OnInit {
 
-  drawerState:boolean=false
-  subscription!:Subscription
-  searchString:string=''
+  // drawerState:boolean=false
+  // subscription!:Subscription
+  // searchString:string=''
 
 
   constructor(
@@ -31,8 +31,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  handleDrawerClick(){
-    this.dataService.changeDrawerState(!this.drawerState)
-  }
+  // handleDrawerClick(){
+  //   this.dataService.changeDrawerState(!this.drawerState)
+  // }
 
 }

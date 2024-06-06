@@ -1,0 +1,111 @@
+.policy-main-cnt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1%;
+    border: 2px solid rgb(195, 195, 195);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.icon {
+    width: 7%;
+    // height: ;
+    margin-right: 20px;
+}
+
+.header-content h2 {
+    color: #1a73e8;
+    margin: 0;
+}
+
+.header-content p {
+    margin: 5px 0 0 0;
+    color: gray;
+}
+
+.card-body p {
+    margin: 0 0 20px 0;
+    color: #555;
+}
+
+.plan-details {
+    font-size: 14px;
+    color: #777;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.key-features, .key-benefits {
+    width: 45%;
+}
+
+.key-features h3, .key-benefits h3 {
+    color: #1a73e8;
+    margin-bottom: 10px;
+}
+
+.key-features h4, .key-benefits ul {
+    color: #333;
+    margin: 5px 0;
+}
+
+.key-benefits ul {
+    list-style: none;
+    padding: 0;
+}
+
+.key-benefits ul li {
+    color: #555;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.card-actions .buy-now, .card-actions .learn-more {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card-actions .buy-now {
+    background-color: #ff5722;
+    color: white;
+}
+
+.card-actions .learn-more {
+    background-color: #8bc34a;
+    color: white;
+}
+
+.card-actions .continue-application {
+    color: #1a73e8;
+    text-decoration: none;
+}

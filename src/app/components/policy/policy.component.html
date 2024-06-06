@@ -1,0 +1,39 @@
+<div class="policy-main-cnt">
+    <div class="card" *ngFor="let item of items">
+        <div class="card-header">
+        <img src="assets/image/life-insurance.avif" alt="Icon" class="icon">
+        <div class="header-content">
+            <h2>Life - eWealth Insurance</h2>
+            <p>111L100V03</p>
+        </div>
+    </div>
+    <div class="card-body">
+        <p>
+            You can now enjoy the benefits of ULIPs with a simplified, 3-step online buying process.SBI Life - eWealth Insurance, helps you grow your wealth. Avail twin benefits of market linked returns on your invested money and the security of life cover.
+        </p>
+        <div class="plan-details">
+            <span>Life - eWealth Unit-linked insurance plan | Online | Protection | Automatic Asset Allocation</span>
+        </div>
+    </div>
+    <div class="card-footer" *ngIf="cartDetails">
+        <div class="key-features">
+            <h3>Key Features</h3>
+            <p>Annual Premium Range</p>
+            <h4>Rs. 24,000 onwards</h4>
+            <p>Entry Age</p>
+            <h4>5 years</h4>
+        </div>
+        <div class="key-benefits">
+            <h3>Key Benefits</h3>
+            <ul>
+                <li>Easy online buying process</li>
+                <li>Two plan options</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-actions">
+        <button class="buy-now" (click)="learnMore()">Buy Now</button>
+        <button class="learn-more" (click)="learnMore()">Learn More</button>
+    </div>
+</div>
+</div>

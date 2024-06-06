@@ -1,0 +1,30 @@
+::ng-deep .app-sidenav-cnt{
+    width:100%;
+    height:calc(100vh - 56px);
+    display: flex;
+}
+
+.sidenav-cnt {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+.side-nav-icon-lable-cnt{
+    border-radius: 0px 40px 40px 0px;
+    height:40px;
+    width: 250px;
+    display: flex;
+    padding: 10px 0px 0px 10px;
+    gap: 30px;
+}  
+
+//--------------
+
+
+.side-nav-icon-lable-cnt:hover{
+background-color: #feefc3;
+}
+.side-nav-icon-lable-cnt span{
+    font-size: 15px;
+    padding: 7px;
+}

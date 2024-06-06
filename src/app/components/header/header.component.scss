@@ -1,3 +1,14 @@
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  z-index: -1;
+  filter: blur(7px); 
+}
+
 .header-main-cnt {
     display: flex;
     // justify-content: center;
@@ -67,4 +78,23 @@
     display: inline-block; 
     background-color: rgb(154, 179, 115);
 
+}
+
+//---------------------------------------------------------
+.role-based-content {
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 14px;
+  padding-bottom: 14px; 
+  height: 20px;
+  background:rgb(22, 22, 22) 0% 0% no-repeat padding-box;
+}
+.list-of-content{
+  display: flex;
+  color: #ffffff;
+  // border: 1px solid red;
+  gap: 40px;
 }

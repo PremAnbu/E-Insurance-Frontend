@@ -1,0 +1,130 @@
+// .personal-dtl-cnt{
+//     // border: 2px solid red;
+//     width: 99%;
+//     margin-top: 2%;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+// }
+// .personalDetail{
+//     width: 50%;
+// }
+// .header-detail{
+//     width: 40%;
+
+// }
+// .header-detail span{
+//     font-size: 40px;
+// }
+// mat-card {
+//     // margin: 20px;
+//   }
+  
+//   .form-group {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+//     gap: 10%;
+//   }
+//   .form-group-single{
+//     margin: 0px 0px 20px 54px;
+
+//   }
+//   label{
+//     color: rgb(128, 128, 197);
+//   }
+  
+//   .income-options {
+//     display: flex;
+//     gap: 10px;
+//   }
+  
+//   mat-form-field {
+//     width: 100%;
+//   }
+  
+//   mat-radio-group {
+//     display: flex;
+//     gap: 10px;
+//   }
+  
+//   mat-card-actions {
+//     display: flex;
+//     justify-content: space-between;
+//   }
+
+  //-------------------------------------------------------
+
+.personal-dtl-cnt {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    // border: 2px solid red;
+  }
+  
+  .header-detail {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    
+  }
+  
+  .personalDetail {
+    width: 50%;
+    max-width: 700px;
+    // border: 2px solid red;
+  }
+  .header-detail{
+    width: 45%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    // border: 2px solid red;
+
+}
+.header-detail span{
+    font-size: 40px;
+}
+  
+  .mat-card {
+    padding: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10%;
+  }
+  
+  .form-group-single {
+    margin-bottom: 20px;
+  }
+    label{
+    color: rgb(128, 128, 197);
+  }
+  .form-field {
+    flex: 1;
+  }
+  
+  .income-options {
+    display: flex;
+    gap: 10px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  mat-radio-button{
+    width: 173px;
+  }
+    mat-radio-group {
+    display: flex;
+    gap: 10px;
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  

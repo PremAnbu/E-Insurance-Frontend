@@ -10,6 +10,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { PolicyComponent } from './components/policy/policy.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PersonalDetailsFormComponent } from './components/personal-details-form/personal-details-form.component';
+
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,6 +24,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatDialogModule} from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCardModule } from '@angular/material/card';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -33,7 +41,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     SignupComponent,
     SideNavComponent,
     PolicyComponent,
-    DashboardComponent
+    DashboardComponent,
+    PersonalDetailsFormComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +58,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatButtonModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCardModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

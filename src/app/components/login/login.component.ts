@@ -14,7 +14,9 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   userRole:string=''
 
-  constructor(private formBuilder: FormBuilder,private route:Router,private dataservice:DataserviceService) { }
+  constructor(private formBuilder: FormBuilder,private route:Router,private dataservice:DataserviceService) 
+  
+  { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -35,10 +37,11 @@ export class LoginComponent implements OnInit {
     console.log(this.loginControl);
     if(this.loginForm.invalid) return
     const {email, password} = this.loginForm.value
+    localStorage.clear();
+    localStorage.setItem("Role",this.userRole)
     this.route.navigate([this.userRole])
     console.log('user role',this.userRole);
     
-
   }
   handleRegister()
   {

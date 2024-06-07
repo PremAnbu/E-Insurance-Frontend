@@ -22,33 +22,7 @@
           </mat-form-field>
         </div>
       </div>
-      <div class="mobileNumber-dateOfBirth" *ngIf="userRole=='customer'">
-        <div class="mobileNumber-field">
-          <label>Mobile Number</label>
-          <mat-form-field appearance="outline">
-            <mat-label>MobileNumber Form Field</mat-label>
-            <input matInput placeholder="Enter Mobile Number" formControlName="mobileNumber">
-            <mat-error *ngIf="signupControl['mobileNumber']?.hasError('pattern')">Invalid Mobile Number</mat-error>
-          </mat-form-field>
-        </div>
-        <div class="dateOfBirth-field">
-          <label>Date Of Birth</label>
-          <mat-form-field appearance="outline">
-            <mat-label>DateOfBirth Form Field</mat-label>
-            <input matInput placeholder="Enter DateOfBirth" formControlName="dateOfBirth" type="date">
-            <mat-error *ngIf="signupControl['dateOfBirth']?.hasError('required')">Date of Birth required</mat-error>
-          </mat-form-field>
-        </div>
-      </div>
       <div class="address-password">
-        <div class="address-field" *ngIf="userRole=='customer'">
-          <label>Address</label>
-          <mat-form-field appearance="outline">
-            <mat-label>Address Form Field</mat-label>
-            <textarea matInput placeholder="Enter Address" formControlName="address"></textarea>
-            <mat-error *ngIf="signupControl['address']?.hasError('required')">Address required</mat-error>
-          </mat-form-field>
-        </div>
         <div class="password-field">
           <label>Password</label>
           <mat-form-field appearance="outline">

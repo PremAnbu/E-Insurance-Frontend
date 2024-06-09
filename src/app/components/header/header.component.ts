@@ -15,24 +15,24 @@ export class HeaderComponent implements OnInit {
   // drawerState:boolean=false
   // subscription!:Subscription
   // searchString:string=''
-
+  userRole : string ='' ;
 
   constructor(
     private dataService:DataserviceService,
     private domSanitizer:DomSanitizer,
-    private matIconRegistry:MatIconRegistry) 
+    private matIconRegistry:MatIconRegistry,) 
     {
       matIconRegistry.addSvgIconLiteral("menu-icon", domSanitizer.bypassSecurityTrustHtml(MENU_ICON)),
       matIconRegistry.addSvgIconLiteral("search-icon", domSanitizer.bypassSecurityTrustHtml(SEARCH_ICON))
       matIconRegistry.addSvgIconLiteral("download-icon", domSanitizer.bypassSecurityTrustHtml(DOWNLOAD_ICON))
       matIconRegistry.addSvgIconLiteral("profile-icon", domSanitizer.bypassSecurityTrustHtml(PROFILE_ICON))
-
-
      }
 
   ngOnInit(): void {
+    this.userRole=localStorage.getItem('role') || '';
+    this.dataService.changeUserRole(this.userRole);
+
   }
-  
   // handleDrawerClick(){
   //   this.dataService.changeDrawerState(!this.drawerState)
   // }

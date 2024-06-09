@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataserviceService } from 'src/app/services/dataservice.service';
+import { HttpserviceService } from 'src/app/services/httpservice.service';
+import { UserserviceService } from 'src/app/services/userservice.service';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +15,10 @@ export class LoginComponent implements OnInit {
   loginFormVisible = false;
   loginForm!: FormGroup;
   userRole:string=''
+  token:string=''
 
-  constructor(private formBuilder: FormBuilder,private route:Router,private dataservice:DataserviceService) 
+  constructor(private formBuilder: FormBuilder,private route:Router
+    ,private dataservice:DataserviceService, private userService:UserserviceService) 
   
   { }
 
@@ -36,17 +40,23 @@ export class LoginComponent implements OnInit {
   login(): void {
     console.log(this.loginControl);
     if(this.loginForm.invalid) return
-    const {email, password} = this.loginForm.value
-    localStorage.clear();
-    localStorage.setItem("Role",this.userRole)
-    this.route.navigate([this.userRole])
-    console.log('user role',this.userRole);
+    const { email, password } = this.loginForm.controls;
+    console.log(email.value, password.value,this.userRole);
     
+    localStorage.clear();
+
+    this.userService.loginApi(email.value, password.value,this.userRole).subscribe((res:any) => {
+      this.token = res.data;
+    localStorage.setItem("authToken", res.data);
+    localStorage.setItem("role",this.userRole)
+  })
+    this.route.navigate(['/dashboard',this.userRole])
+    console.log('user role',this.userRole);
   }
   handleRegister()
   {
     this.dataservice.changeUserRole(this.userRole);
-    this.route.navigate(['signup'])
+    this.route.navigate(['signup',this.userRole])
   }
 
 }

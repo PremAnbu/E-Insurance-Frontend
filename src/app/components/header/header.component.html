@@ -14,8 +14,8 @@
       </div>
       <div class="profile-download-cnt">
         <mat-icon class="download-icon" svgIcon="download-icon" aria-hidden="false" aria-label="Search SVG icon"></mat-icon>
-        <span class="google-account">P</span>
-        <div class="login-cnt" routerLink="login">
+        <!-- <span class="google-account">P</span> -->
+        <div class="login-cnt" routerLink="/">
           <span class="login">Login</span>
           <mat-icon class="profile-icon" svgIcon="profile-icon" aria-hidden="false" aria-label="Search SVG icon"></mat-icon>
         </div>
@@ -24,41 +24,47 @@
   </div>
 
   <div>
-    <div class="role-based-content">
-          <!-- <div class="list-of-content">          
-            <span class="values">Policy Create</span>
+    <div class="role-based-content" *ngIf="'admin' !=  userRole">
+      <div class="list-of-content" *ngIf="userRole == ''">
+        <span class="values" routerLink="policy"> View Policy</span>
+      </div>
+          <div class="list-of-content" *ngIf="userRole == 'employee'">          
+            <span class="values" routerLink="createpolicy">Policy Create</span>
             <span class="values">Payment Process</span>
             <span class="values">Commission</span>
             <span class="values">Premium</span>
-            <span class="values">View Policy</span>
+            <span class="values" routerLink="policy">View Policy</span>
             <span class="values">view Payment</span>
             <span class="values">view Commission</span>
             <span class="values">Cancellation</span>
             <span class="values">Renewal</span>
             <span class="values">Search Policy</span>
-          </div> -->
-          <!-- <div class="list-of-content">
-            <span class="values">Policy Create</span>
+          </div>
+          <div class="list-of-content" *ngIf="userRole == 'agent'">
+            <span class="values" routerLink="createpolicy">Policy Create</span>
             <span class="values">Payment Process</span>
             <span class="values">Commission</span>
             <span class="values">Premium</span>
-            <span class="values">View Policy</span>
-            <span class="values">view Payment</span>
+            <span class="values" routerLink="policy"> View Policy</span>
+            <span class="values" >view Payment</span>
             <span class="values">view Commission</span>
             <span class="values">Renewal</span>
             <span class="values">comm based on 1 Policy</span>
             <span class="values">Search Policy</span>
-          </div> -->
-          <div class="list-of-content">
-            <span class="values">View Policy</span>
+          </div>
+          <div class="list-of-content" *ngIf="userRole == 'customer'">
+            <span class="values" routerLink="policy">View Policy</span>
+            <span class="values">My Policy</span>
             <span class="values">View Payment</span>
             <span class="values">Receipt</span>
             <span class="values">Policy Cancellation</span>
-            <span class="values">View Policy</span> 
             <span class="values">Renewal</span>
             <span class="values">Search Policy</span>
-          </div>
+          </div> 
     </div>
+    <div class="main-content" *ngIf="userRole == 'admin'" [style.backgroundImage]="'url(assets/Images/customer-dashboard-background-image.png)'" >
+      <p class="quote">A Policy Of life insurance is the cheapest and safest mode of making a certain provision for one's family</p>
+    </div> 
   </div>
   
  

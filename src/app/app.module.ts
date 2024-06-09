@@ -30,6 +30,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { PremiumPaymentComponent } from './components/premium-payment/premium-payment.component';
+import { PolicyCreationComponent } from './components/policy-creation/policy-creation.component';
 
 
 
@@ -42,7 +44,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     SideNavComponent,
     PolicyComponent,
     DashboardComponent,
-    PersonalDetailsFormComponent
+    PersonalDetailsFormComponent,
+    PremiumPaymentComponent,
+    PolicyCreationComponent
   ],
   imports: [
     BrowserModule,

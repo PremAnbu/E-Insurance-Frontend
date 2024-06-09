@@ -1,27 +1,25 @@
 <div class="policy-main-cnt">
-    <div class="card" *ngFor="let item of items">
+    <div class="card" *ngFor="let item of policiesList">
         <div class="card-header">
-        <img src="assets/image/life-insurance.avif" alt="Icon" class="icon">
         <div class="header-content">
-            <h2>Life - eWealth Insurance</h2>
-            <p>111L100V03</p>
+            <h2>{{item.policyType}} - {{item.policyName}}</h2>
+            <p>{{item.policyNumber}}</p>
         </div>
     </div>
     <div class="card-body">
-        <p>
-            You can now enjoy the benefits of ULIPs with a simplified, 3-step online buying process.SBI Life - eWealth Insurance, helps you grow your wealth. Avail twin benefits of market linked returns on your invested money and the security of life cover.
+        <p>{{item.policyDescription}}
         </p>
         <div class="plan-details">
             <span>Life - eWealth Unit-linked insurance plan | Online | Protection | Automatic Asset Allocation</span>
         </div>
     </div>
-    <div class="card-footer" *ngIf="cartDetails">
+    <div class="card-footer" *ngIf="item.premiumDetails">
         <div class="key-features">
             <h3>Key Features</h3>
             <p>Annual Premium Range</p>
-            <h4>Rs. 24,000 onwards</h4>
+            <h4>Rs. {{item.annualPremiumRange}} onwards</h4>
             <p>Entry Age</p>
-            <h4>5 years</h4>
+            <h4>{{item.entryAge}} years</h4>
         </div>
         <div class="key-benefits">
             <h3>Key Benefits</h3>
@@ -32,8 +30,13 @@
         </div>
     </div>
     <div class="card-actions">
-        <button class="buy-now" routerLink="/personalDetail">Buy Now</button>
-        <button class="learn-more" (click)="learnMore()">Learn More</button>
+        <button class="buy-now" (click)="onBuyNow(item.policyId)">Buy Now</button>
+        <button class="learn-more" (click)="learnMore(item)">Learn More</button>
     </div>
 </div>
 </div>
+
+<!-- ----------------------- -->
+
+
+  

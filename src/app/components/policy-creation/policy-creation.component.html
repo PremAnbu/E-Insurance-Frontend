@@ -1,52 +1,40 @@
 <div class="policy-create-container">
-    <form [formGroup]="policyForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="policyName">Policy Name</label>
-        <input id="policyName" formControlName="policyName" type="text" class="form-control" placeholder="Enter Policy Name">
-      </div>
-  
-      <div class="form-group">
-        <label for="policyCode">Policy Code</label>
-        <input id="policyCode" formControlName="policyCode" type="text" class="form-control" placeholder="Enter Policy Code">
-      </div>
-  
-      <div class="form-group">
-        <label for="policyDescription">Policy Description</label>
-        <textarea id="policyDescription" formControlName="policyDescription" class="form-control" placeholder="Enter Policy Description"></textarea>
-      </div>
-  
-      <div class="form-group">
-        <label for="sumAssured">Sum Assured</label>
-        <input id="sumAssured" formControlName="sumAssured" type="number" class="form-control" placeholder="Enter Sum Assured">
-      </div>
-  
-      <div class="form-group">
-        <label for="policyTerm">Policy Term</label>
-        <select id="policyTerm" formControlName="policyTerm" class="form-control">
-          <option *ngFor="let year of policyTerms" [value]="year">{{ year }} Years</option>
-        </select>
-      </div>
-  
-      <div class="form-group">
-        <label>Premium Payment Frequency</label>
-        <div class="frequency-options">
-          <button type="button" class="frequency-option" [class.active]="frequency === 'yearly'" (click)="setFrequency('yearly')">Yearly <small>Save 2%</small></button>
-          <button type="button" class="frequency-option" [class.active]="frequency === 'halfYearly'" (click)="setFrequency('halfYearly')">Half Yearly</button>
-          <button type="button" class="frequency-option" [class.active]="frequency === 'quarterly'" (click)="setFrequency('quarterly')">Quarterly</button>
-          <button type="button" class="frequency-option" [class.active]="frequency === 'monthly'" (click)="setFrequency('monthly')">Monthly</button>
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <label for="premiumAmount">Premium Amount</label>
-        <input id="premiumAmount" formControlName="premiumAmount" type="number" class="form-control" placeholder="Enter Premium Amount">
-      </div>
-  
-      <div class="form-group">
-        <label for="entryAge">Entry Age</label>
-        <input id="entryAge" formControlName="entryAge" type="number" class="form-control" placeholder="Enter Entry Age">
-      </div>
-  
-      <button type="submit" class="btn btn-primary">Create Policy</button>
-    </form>
-  </div>
+  <form [formGroup]="policyForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="policyNumber">Policy Number</label>
+      <input id="policyNumber" formControlName="policyNumber" type="text" class="form-control" placeholder="Enter Policy Number">
+    </div>
+
+    <div class="form-group">
+      <label for="policyName">Policy Name</label>
+      <input id="policyName" formControlName="policyName" type="text" class="form-control" placeholder="Enter Policy Name">
+    </div>
+
+    <div class="form-group">
+      <label for="policyDescription">Policy Description</label>
+      <textarea id="policyDescription" formControlName="policyDescription" class="form-control" placeholder="Enter Policy Description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="policyType">Policy Type</label>
+      <input id="policyType" formControlName="policyType" type="text" class="form-control" placeholder="Enter Policy Type">
+    </div>
+
+    <div class="form-group">
+      <label for="claimSettlementRatio">Claim Settlement Ratio</label>
+      <input id="claimSettlementRatio" formControlName="claimSettlementRatio" type="number" class="form-control" placeholder="Enter Claim Settlement Ratio">
+    </div>
+
+    <div class="form-group">
+      <label for="entryAge">Entry Age</label>
+      <input id="entryAge" formControlName="entryAge" type="number" class="form-control" placeholder="Enter Entry Age">
+    </div>
+
+    <div class="form-group">
+      <label for="annualPremiumRange">Annual Premium Range</label>
+      <input id="annualPremiumRange" formControlName="annualPremiumRange" type="number" class="form-control" placeholder="Enter Annual Premium Range">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Policy</button>
+  </form>
+</div>

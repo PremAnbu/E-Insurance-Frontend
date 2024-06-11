@@ -9,10 +9,9 @@ import { PolicyserviceService } from 'src/app/services/policyservice.service';
   styleUrls: ['./policy-creation.component.scss']
 })
 export class PolicyCreationComponent implements OnInit {
-
   policyForm!: FormGroup;
-  policyTerms: number[] = [1, 5, 10, 15, 20]; // Example terms in years
-  frequency: string = 'yearly';
+  userRole!: string;
+
 
   constructor(
     private fb: FormBuilder,
@@ -21,38 +20,34 @@ export class PolicyCreationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.policyForm = this.fb.group({
-      policyName: ['', Validators.required],
-      policyCode: ['', Validators.required],
-      policyDescription: ['', Validators.required],
-      sumAssured: ['', [Validators.required, Validators.min(1)]],
-      policyTerm: ['', Validators.required],
-      premiumAmount: ['', [Validators.required, Validators.min(1)]],
-      entryAge: ['', [Validators.required, Validators.min(1)]]
-    });
-  }
+    this.userRole = localStorage.getItem('role') || '';
 
-  setFrequency(frequency: string): void {
-    this.frequency = frequency;
+    this.policyForm = this.fb.group({
+      policyNumber: ['', Validators.required],
+      policyName: ['', Validators.required],
+      policyDescription: ['', Validators.required],
+      policyType: ['', Validators.required],
+      claimSettlementRatio: ['', [Validators.required, Validators.min(0)]],
+      entryAge: ['', [Validators.required, Validators.min(1)]],
+      annualPremiumRange: ['', [Validators.required, Validators.min(1)]]
+    });
   }
 
   onSubmit(): void {
     if (this.policyForm.valid) {
       const policyData = {
         ...this.policyForm.value,
-        premiumFrequency: this.frequency
+        claimSettlementRatio: this.policyForm.value.claimSettlementRatio.toString()   
       };
-
-      // this.policyService.createPolicy(policyData).subscribe(
-      //   (response: any) => {
-      //     console.log('Policy created successfully', response);
-      //     this.router.navigate(['/dashboard', 'admin', 'policies']);
-      //   },
-      //   (error: any) => {
-      //     console.error('Error creating policy', error);
-      //   }
-      // );
+      this.policyService.addPolicyCall(policyData).subscribe(
+        (response: any) => {
+          console.log('Policy created successfully', response);
+          this.router.navigate(['/dashboard', this.userRole, 'policy']);
+        },
+        (error: any) => {
+          console.error('Error creating policy', error);
+        }
+      );
     }
   }
-
 }

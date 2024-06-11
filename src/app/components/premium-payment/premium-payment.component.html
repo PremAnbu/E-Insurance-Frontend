@@ -1,90 +1,93 @@
 <div class="container">
-    <div class="left-panel">
-
-      <div class="proposer-details">
-        <h3>(Proposer)</h3>
-        <div class="proposer-item">
+  <div class="left-panel">
+    <div class="proposer-details">
+      <h3>(Proposer)</h3>
+      <div class="proposer-item">
         <div>
-           <p><strong>Income</strong></p>
-           <p>{{personalDetail.annualIncome}}</p>
+          <p><strong>Income</strong></p>
+          <p>{{ personalDetail.annualIncome }}</p>
         </div>
         <div>
-        <p><strong>DOB</strong></p>
-        <p>22 years</p>
-    </div></div>
-    <div class="proposer-item">
-        <div>
-        <p><strong>Name</strong></p>
-        <p>{{personalDetail.firstName}} {{personalDetail.lastName}}</p>
-    </div>
-    <div>
-        <p><strong>Gender</strong></p>
-        <p>{{personalDetail.gender}}</p>
-    </div></div>
-
+          <p><strong>DOB</strong></p>
+          <p>22 years</p>
+        </div>
       </div>
-
-
-      <div class="toll-free">
-        <p>Toll free No. <strong>1800 267 1800</strong></p>
+      <div class="proposer-item">
+        <div>
+          <p><strong>Name</strong></p>
+          <p>{{ personalDetail.firstName }} {{ personalDetail.lastName }}</p>
+        </div>
+        <div>
+          <p><strong>Gender</strong></p>
+          <p>{{ personalDetail.gender }}</p>
+        </div>
       </div>
     </div>
-  
-    <div class="right-panel">
-      <form [formGroup]="insuranceForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="sumAssured">Sum Assured</label>
-          <input id="sumAssured" formControlName="sumAssured" type="text" placeholder="₹ 10000000">
-          <small>One Crore</small>
-        </div>
-        
-        <div class="form-group">
-          <label for="policyTerm">Policy Term</label>
-          <select id="policyTerm" formControlName="policyTerm" class="option-type">
-            <option  *ngFor="let year of policyTerms" [value]="year" >{{ year }} Years</option>
-        </select>
-        </div>
-  
-        <div class="form-group">
-          <label>Premium Payment Frequency</label>
-          <div class="frequency-options">
-            <button type="button" class="frequency-option" [class.active]="frequency === 'yearly'" (click)="setFrequency('yearly')">Yearly <small>Save 2%</small></button>
-            <button type="button" class="frequency-option" [class.active]="frequency === 'halfYearly'" (click)="setFrequency('halfYearly')">Half Yearly</button>
-            <button type="button" class="frequency-option" [class.active]="frequency === 'quarterly'" (click)="setFrequency('quarterly')">Quarterly</button>
-            <button type="button" class="frequency-option" [class.active]="frequency === 'monthly'" (click)="setFrequency('monthly')">Monthly</button>
-          </div>          
-        </div>
-  
-        <div class="form-group">
-          <label for="premiumPayingOption">Premium Paying Option</label>
-          <select id="premiumPayingOption" formControlName="premiumPayingOption" class="option-type">
-            <option>Single</option>
-            <option>Regular</option>
-            <option>Limited</option>
-          </select>
-          <small>Discount of 1.5% applicable</small>
-        </div>
-  
-        <!-- <div class="form-group">
-          <label for="premiumPayingTerm">Premium Paying Term</label>
-          <select id="premiumPayingTerm" formControlName="premiumPayingTerm">
-            <option>53 Years</option>
-          </select>
-          <small>Your Premium Paying Term will be same as Policy Term</small>
-        </div> -->
-        
-        <div class="form-group">
-          <small>Discount is applicable on the Final Premium Payable</small>
-        </div>
-        <button mat-raised-button color="primary" type="submit">Continue</button>
-
-      </form>
+    <div class="toll-free">
+      <p>Toll free No. <strong>1800 267 1800</strong></p>
     </div>
   </div>
-  <!-- ------ premium calculation value -->
-   <div class="container">
-    <div class="premium-value-main">
 
+  <div class="right-panel">
+    <form [formGroup]="insuranceForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="sumAssured">Sum Assured</label>
+        <input id="sumAssured" formControlName="sumAssured" type="text" placeholder="₹ 10000000">
+        <small>One Crore</small>
+      </div>
+      <div class="form-group">
+        <label for="policyTerm">Policy Term</label>
+        <select id="policyTerm" formControlName="policyTerm" class="option-type">
+          <option *ngFor="let year of policyTerms" [value]="year">{{ year }} Years</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Premium Payment Frequency</label>
+        <div class="frequency-options">
+          <button type="button" class="frequency-option" [class.active]="frequency === 'Annual'" (click)="setFrequency('Annual')">Annual <small>Save 2%</small></button>
+          <button type="button" class="frequency-option" [class.active]="frequency === 'Half-Yearly'" (click)="setFrequency('Half-Yearly')">Half-Yearly</button>
+          <button type="button" class="frequency-option" [class.active]="frequency === 'Quarterly'" (click)="setFrequency('Quarterly')">Quarterly</button>
+          <button type="button" class="frequency-option" [class.active]="frequency === 'Monthly'" (click)="setFrequency('Monthly')">Monthly</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="premiumType">Premium Paying Option</label>
+        <input id="premiumType" formControlName="premiumType" type="hidden">
+        <select id="premiumType" formControlName="premiumType" class="option-type">
+          <option value="Single">Single</option>
+          <option value="Regular">Regular</option>
+          <option value="Limited">Limited</option>
+        </select>
+        <small>Discount of 1.5% applicable</small>
+      </div>
+      <div class="form-group">
+        <small>Discount is applicable on the Final Premium Payable</small>
+      </div>
+      <button mat-raised-button color="primary" type="submit">Calculate Premium</button>
+    </form>
+  </div>
+</div>
+
+<div class="container" *ngIf="calcPremium">
+  <div class="premium-value-main">
+    <div class="premium-cnt">
+      <div class="premium-value">
+        <span>Sum Assured</span>
+        <span>{{coverageAmount}}</span>
+      </div>
+      <div class="premium-value">
+        <span>Policy Term</span>
+        <span>{{tenure}} Years</span>
+      </div>
+      <div class="premium-value">
+        <span>Premium Payment Frequency</span>
+        <span>{{premiumType}}</span>
+      </div>
+      <div class="premium-value">
+        <span>Premium Value</span>
+        <span>{{premiumAmount}}</span>
+      </div>
     </div>
-   </div>
-  
+    <button mat-raised-button color="primary" type="submit" class="continue-btn" (click)="purchasePolicy()">Continue</button>
+  </div>
+</div>

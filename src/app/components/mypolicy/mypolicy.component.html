@@ -1,0 +1,37 @@
+<div class="main-content">
+    <div class="policies-main-cnt">
+      <div class="title-nav">
+        <span class="home-nav" routerLink="/dashboard/customer">Home</span>
+        <span class="policies-nav">/ My Policies</span>
+      </div>
+      <div class="policies-cnt" *ngIf="purchaseList.length > 0">
+        <div class="policies-heading-cnt">
+          <span class="policies-heading">My Policies ({{purchaseList.length}})</span>
+        </div>
+        <div class="policy-item-cnt" *ngFor="let policy of purchaseList">
+          <div class="policy-box">
+            <div class="policy-details">
+              <span>Coverage Amount: {{policy.coverageAmount}}</span>
+              <span>Policy Term: {{policy.tenure}} years</span>
+              <span>Policy Type: {{policy.policyType}}</span>
+              <span>Payment Frequency: {{policy.premiumType}}</span>
+              <span>Policy ID: {{policy.purchaseId}}</span>
+              <span>Created At: {{policy.purchaseDate | date:'short'}}</span>
+              <span>Customer Age: {{policy.customerAge}}</span>
+              <span>Agent Id: {{policy.agentId}}</span>
+              <!-- <span class="policy-name">Policy Name: {{policy.policyName}}</span> -->
+              <span class="premium-amount">Premium Amount: Rs. {{policy.premiumAmount}}</span>
+            </div>
+            <div class="action-buttons">
+              <button mat-raised-button color="primary" (click)="makePayment(policy)">Payment</button>
+              <button mat-raised-button color="warn" (click)="cancelPolicy(policy)">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="purchaseList.length === 0" class="empty-policies">
+        <span class="content">You have no policies</span>
+      </div>
+    </div>
+  </div>
+  

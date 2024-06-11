@@ -87,9 +87,9 @@ export class PersonalDetailsFormComponent implements OnInit {
           this.policyService.addPersonalDetails(personalDetailsPayload);
           console.log(this.userRole);
           
-          this.router.navigate(['dashboard', this.userRole, 'premium']);
+          this.router.navigate(['premium', this.userRole], { queryParams: { policyId: this.policyId } });
         },
-        (error: any) => {
+        (error: any) => { 
           console.error('Error adding personal details', error);
         }
       );

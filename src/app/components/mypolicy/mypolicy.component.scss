@@ -1,0 +1,84 @@
+.policies-main-cnt {
+    width: 74.8%;
+    margin-left: 174px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .title-nav {
+    width: 100%;
+    margin-top: 19px;
+  }
+  
+  .home-nav {
+    text-align: left;
+    font: normal normal normal 12px/16px Roboto;
+  }
+  
+  .policies-nav {
+    text-align: left;
+    font: normal normal normal 12px/16px Roboto;
+    color: #0A0102;
+  }
+  
+  .policies-cnt {
+    width: 100%;
+    margin-top: 17px;
+  }
+  
+  .policies-heading-cnt {
+    background: #8cc4ec no-repeat padding-box;
+    // border: 1px solid #E4E4E4;
+    padding: 17px 0px 14px 0px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .policies-heading {
+    text-align: left;
+    font: normal normal medium 25px/35px Roboto;
+    color: #0A0102;
+    font-size: 20px;
+  }
+  
+  .policy-item-cnt {
+    margin-top: 20px;
+  }
+  
+  .policy-box {
+    padding: 20px;
+    border: 1px solid #E4E4E4;
+    border-radius: 5px;
+    background: rgb(255,255,255,0.7);
+  }
+  
+  .policy-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .policy-name,
+  .premium-amount,
+  .policy-id {
+    text-align: left;
+    font: normal normal normal 16px/22px Roboto;
+    color: #0A0102;
+    margin-bottom: 8px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+  
+  .empty-policies {
+    width: 100%;
+    margin-top: 17px;
+  }
+  
+  .delete-icon {
+    width: 17px;
+    height: 53px;
+  }

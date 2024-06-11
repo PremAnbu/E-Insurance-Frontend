@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="card-actions">
-        <button class="buy-now" (click)="onBuyNow(item.policyId)">Buy Now</button>
+        <button *ngIf="userRole === 'customer' || userRole === 'employee' || userRole === '' " class="buy-now" (click)="onBuyNow(item.policyId)">Buy Now</button>
         <button class="learn-more" (click)="learnMore(item)">Learn More</button>
     </div>
 </div>

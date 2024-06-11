@@ -36,15 +36,28 @@ export class HttpserviceService {
 // ---------
   policyCreationApi(policyData:object):Observable<any>
   {
-    return this.http.post(`${this.apiUrl}/Policies`,policyData)
+    return this.http.post(`${this.apiUrl}/Policies/createPolicy`,policyData, { headers: this.authHeader })
   }
   getAllPoliciesApi():Observable<any>
   {
-    return this.http.get(`${this.apiUrl}/Policies`)
+    return this.http.get(`${this.apiUrl}/Policies/allPolicies`)
   }
   // -------
 
   addPersonalDetails(details: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/purchase/customerDetails`, details, { headers: this.authHeader });
+  }
+
+  //--------------------------
+  premiumCalculation(details: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/premium/calculatePremium`, details, { headers: this.authHeader });
+  }
+  purchasePolicy(details: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/purchase/purchasePolicy`, details, { headers: this.authHeader });
+  }
+  //-------------------------------------------
+  getAllPurchaseApi():Observable<any>
+  {
+    return this.http.get(`${this.apiUrl}/purchase`, { headers: this.authHeader })
   }
 }

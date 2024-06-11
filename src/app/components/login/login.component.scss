@@ -104,10 +104,19 @@
   height: 100vh;
   gap:20px;
 }
+// .buttons{
+//   display: flex;
+//   flex-direction: row;
+//   gap:25px;
+// }
 .buttons{
   display: flex;
   flex-direction: row;
   gap:25px;
+  button{
+    background-color: #ad4e97;
+    color: white;
+  }
 }
 .login-form {
   border: 1px solid black;
@@ -117,7 +126,7 @@
   padding: 25px;
   display: flex;
   flex-direction: column;
-  background-color: white; /* Ensure the form is readable */
+  background-color: rgb(227, 227, 228); /* Ensure the form is readable */
   z-index: 1;
 }
 

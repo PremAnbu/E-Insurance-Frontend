@@ -32,6 +32,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { PremiumPaymentComponent } from './components/premium-payment/premium-payment.component';
 import { PolicyCreationComponent } from './components/policy-creation/policy-creation.component';
+import { MypolicyComponent } from './components/mypolicy/mypolicy.component';
 
 
 
@@ -46,7 +47,8 @@ import { PolicyCreationComponent } from './components/policy-creation/policy-cre
     DashboardComponent,
     PersonalDetailsFormComponent,
     PremiumPaymentComponent,
-    PolicyCreationComponent
+    PolicyCreationComponent,
+    MypolicyComponent
   ],
   imports: [
     BrowserModule,

@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
     localStorage.setItem("authToken", res.data);
     localStorage.setItem("role",this.userRole)
   })
-    this.route.navigate(['/dashboard',this.userRole])
+    this.route.navigate(['/',this.userRole])
     console.log('user role',this.userRole);
   }
   handleRegister()

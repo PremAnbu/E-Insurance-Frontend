@@ -29,12 +29,16 @@ export class HeaderComponent implements OnInit {
      }
 
   ngOnInit(): void {
+    console.log(this.userRole);
     this.userRole=localStorage.getItem('role') || '';
     this.dataService.changeUserRole(this.userRole);
-
   }
   // handleDrawerClick(){
   //   this.dataService.changeDrawerState(!this.drawerState)
   // }
+  logout(){
+    localStorage.clear();
+    location.reload();
+  }
 
 }

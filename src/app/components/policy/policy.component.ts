@@ -39,12 +39,12 @@ export class PolicyComponent implements OnInit {
   onBuyNow(policyId: number): void {
     if (localStorage.getItem('authToken') != null) {
       if (this.userRole) {
-        this.router.navigate(['dashboard', this.userRole, 'personalDetail'], { queryParams: { policyId: policyId } });
+        this.router.navigate(['personalDetail'], { queryParams: { policyId: policyId } });
       } else {
         console.error('UserRole is undefined');
       }
     } else {
-      this.router.navigate(['/']);
+      this.router.navigate(['login']);
     }
   }
 }

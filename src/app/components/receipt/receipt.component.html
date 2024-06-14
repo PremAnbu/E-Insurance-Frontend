@@ -1,0 +1,73 @@
+<div class="form-container" #template>
+    <div class="heading">
+        <span>Insurance Payment Receipt</span>
+    </div>
+    <div class="form-group">
+      <label>Customer Id:</label>
+      <div>{{receipt.customerId}}425HS2</div> 
+    </div>
+    <div class="form-group">
+      <label>First Name:</label>
+      <div>{{receipt.firstName}}</div> 
+    </div>
+    <div class="form-group">
+      <label>Last Name:</label>
+      <div>{{receipt.lastName}}</div> 
+    </div>
+    <div class="form-group">
+      <label>Gender:</label>
+      <div>{{receipt.gender}}</div>
+    </div>
+    <div class="form-group">
+      <label>DOB:</label>
+      <div>{{dob}}</div>
+    </div>
+    <div class="form-group">
+      <label>Mobile Number:</label>
+      <div>{{receipt.mobileNumber}}</div> 
+    </div>
+    <div class="form-group">
+      <label>Address:</label>
+      <div>{{receipt.address}}</div>
+    </div>
+    <div class="form-group">
+      <label>Policy Number:</label>
+      <div>{{policyList[0].policyNumber}}</div> 
+    </div>
+    <div class="form-group">
+      <label>Policy Name:</label>
+      <div>{{policyList[0].policyName}}</div>
+    </div>
+    <div class="form-group">
+      <label>Policy Type:</label>
+      <div>{{policyList[0].policyType}}</div> 
+    </div>  
+    <div class="form-group">
+        <label>Annual Income:</label>
+        <div>{{receipt.annualIncome}}</div> 
+    </div>
+    <!-- <div class="form-group">
+      <label>Tenure:</label>
+      <div>{{receipt.tenure}} Years</div> 
+    </div> -->
+    <div class="form-group">
+      <label>Premium Type:</label>
+      <div>{{receipt.paymentMethod}}</div> 
+    </div>
+    <div class="form-group">
+      <label>Premium Amount:</label>
+      <div>${{receipt.premiumAmount}}</div> 
+    </div>
+    <div class="form-group">
+        <label>Payment Date:</label>
+        <div>{{paymentDate}}</div> 
+    </div>
+    <div class="form-group">
+        <label>Payment Status:</label>
+        <div>{{receipt.status}}</div> 
+    </div>
+    <div class="form-group"  *ngIf="!downloadBtn">
+      <button (click)="download()">Download</button>
+    </div>
+  </div>
+  

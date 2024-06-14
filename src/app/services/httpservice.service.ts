@@ -33,21 +33,21 @@ export class HttpserviceService {
   customerRegistration(customerData: object): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/registration/customers`, customerData);
   }
+
+  getAllAgent():Observable<any>{
+    return this.http.get(`${this.apiUrl}/purchase/allAgents`);
+  }
 // ---------
-  policyCreationApi(policyData:object):Observable<any>
-  {
+  policyCreationApi(policyData:object):Observable<any>{
     return this.http.post(`${this.apiUrl}/Policies/createPolicy`,policyData, { headers: this.authHeader })
   }
-  getAllPoliciesApi():Observable<any>
-  {
+  getAllPoliciesApi():Observable<any>{
     return this.http.get(`${this.apiUrl}/Policies/allPolicies`)
   }
   // -------
-
   addPersonalDetails(details: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/purchase/customerDetails`, details, { headers: this.authHeader });
   }
-
   //--------------------------
   premiumCalculation(details: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/premium/calculatePremium`, details, { headers: this.authHeader });
@@ -56,8 +56,17 @@ export class HttpserviceService {
     return this.http.post<any>(`${this.apiUrl}/purchase/purchasePolicy`, details, { headers: this.authHeader });
   }
   //-------------------------------------------
-  getAllPurchaseApi():Observable<any>
-  {
+  getAllPurchaseApi():Observable<any>{
     return this.http.get(`${this.apiUrl}/purchase`, { headers: this.authHeader })
+  }
+  paymentProcess(details: any):Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/payment`, details, { headers: this.authHeader });
+  }
+  //----------------------------------------------
+  getReceipt(purchaseId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/payment/getReceipt?PaymentId=${purchaseId}`, { headers: this.authHeader });
+  }
+  policyCancel(policyId: number): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/purchase/cancelPolicy?policyId=${policyId}`, {},{ headers: this.authHeader });
   }
 }

@@ -32,7 +32,7 @@
               <mat-form-field appearance="outline">
                 <mat-label>Select Agent</mat-label>
                 <mat-select formControlName="agent">
-                  <mat-option *ngFor="let agent of agents" [value]="agent">{{ agent }}</mat-option>
+                  <mat-option *ngFor="let agent of allAgent" [value]="agent.id">{{ agent.fullName }} ( {{agent.location}} )</mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
@@ -86,7 +86,7 @@
           </div>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button color="primary" type="submit">Continue</button>
+          <button mat-raised-button color="primary" type="submit" (click)="receipt()">Continue</button>
         </mat-card-actions>
       </form>
     </mat-card>

@@ -1,4 +1,5 @@
-<img src="assets/image/insurance-background-img.jpg" class="background-image" alt="">
+<!-- <img src="assets/image/insurance-background-img.jpg" class="background-image" alt=""> -->
+<div class="background-image"></div>
 
 <div class="header-main-cnt">
   <div class="inner-main-cnt">
@@ -9,7 +10,7 @@
       </div>
       <div class="search-container">
         <mat-icon class="search-icon" svgIcon="search-icon" aria-hidden="false" aria-label="Search SVG icon"></mat-icon>
-        <input type="text" class="search-input" placeholder="Search...">
+        <input type="text" class="search-input" placeholder="Search..." (input)="handleSearchString()" [(ngModel)]="searchString">
       </div>
     </div>
     <div class="profile-download-cnt">
@@ -29,37 +30,27 @@
       <span class="values" routerLink="policy">View Policy</span>
       <span class="values" routerLink="myPolicy">My Policy</span>
       <span class="values">View Payment</span>
-      <span class="values">Receipt</span>
-      <span class="values">Policy Cancellation</span>
+      <span class="values">Policy Cancellation</span> 
       <span class="values">Renewal</span>
-      <span class="values">Search Policy</span>
     </div> 
     <div class="list-of-content" *ngIf="userRole === 'employee' || userRole === 'admin'">          
       <span class="values" routerLink="createpolicy">Policy Create</span>
-      <span class="values">Payment Process</span>
       <span class="values">Commission</span>
       <span class="values">Premium</span>
       <span class="values" routerLink="policy">View Policy</span>
-      <span class="values">View Payment</span>
       <span class="values">View Commission</span>
       <span class="values">Cancellation</span>
       <span class="values">Renewal</span>
-      <!-- <span class="values">Search Policy</span> -->
     </div>
     <div class="list-of-content" *ngIf="userRole === 'agent'">
       <span class="values" routerLink="createpolicy">Policy Create</span>
-      <span class="values">Payment Process</span>
       <span class="values">Commission</span>
       <span class="values">Premium</span>
       <span class="values" routerLink="policy"> View Policy</span>
-      <span class="values">View Payment</span>
       <span class="values">View Commission</span>
       <span class="values">Renewal</span>
       <span class="values">Comm based on 1 Policy</span>
-      <!-- <span class="values">Search Policy</span> -->
     </div>
   </div>
-  <!-- <div class="main-content" *ngIf="userRole === 'admin'" [style.backgroundImage]="'url(assets/Images/customer-dashboard-background-image.png)'">
-    <p class="quote">A Policy Of life insurance is the cheapest and safest mode of making a certain provision for one's family</p>
-  </div>  -->
 </div>
+

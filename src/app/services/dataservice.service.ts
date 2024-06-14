@@ -7,6 +7,10 @@ import { BehaviorSubject } from 'rxjs';
 export class DataserviceService {
 
   constructor() { }
+
+  private searchString = new BehaviorSubject('');
+  currSearchString = this.searchString.asObservable();
+
   private userRole=new BehaviorSubject('')
   userRoleState=this.userRole.asObservable();
 
@@ -15,6 +19,10 @@ export class DataserviceService {
 
   private drawerState = new BehaviorSubject(false);
   currDrawerState = this.drawerState.asObservable();
+
+  updateSearchString(state:string){
+    this.searchString.next(state)
+   }
 
   changeUserRole(value:string){
     this.userRole.next(value);

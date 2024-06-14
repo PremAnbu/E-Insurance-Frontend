@@ -33,6 +33,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { PremiumPaymentComponent } from './components/premium-payment/premium-payment.component';
 import { PolicyCreationComponent } from './components/policy-creation/policy-creation.component';
 import { MypolicyComponent } from './components/mypolicy/mypolicy.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { ReceiptComponent } from './components/receipt/receipt.component';
+import { SearchPipe } from './pipe/search.pipe';
+import { CommissionComponent } from './components/commission/commission.component';
 
 
 
@@ -48,7 +52,11 @@ import { MypolicyComponent } from './components/mypolicy/mypolicy.component';
     PersonalDetailsFormComponent,
     PremiumPaymentComponent,
     PolicyCreationComponent,
-    MypolicyComponent
+    MypolicyComponent,
+    PaymentComponent,
+    ReceiptComponent,
+    SearchPipe,
+    CommissionComponent
   ],
   imports: [
     BrowserModule,

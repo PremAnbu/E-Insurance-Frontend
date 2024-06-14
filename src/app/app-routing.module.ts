@@ -8,6 +8,7 @@ import { PersonalDetailsFormComponent } from './components/personal-details-form
 import { PremiumPaymentComponent } from './components/premium-payment/premium-payment.component';
 import { PolicyCreationComponent } from './components/policy-creation/policy-creation.component';
 import { MypolicyComponent } from './components/mypolicy/mypolicy.component';
+import { ReceiptComponent } from './components/receipt/receipt.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: 'premium/:role',
         component: PremiumPaymentComponent
+      },
+      {
+        path: 'receipt',
+        component: ReceiptComponent
       },
       {
         path: 'personalDetail',

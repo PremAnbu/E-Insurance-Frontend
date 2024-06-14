@@ -1,9 +1,9 @@
 <div class="main-content">
     <div class="policies-main-cnt">
-      <div class="title-nav">
+      <!-- <div class="title-nav">
         <span class="home-nav" routerLink="/dashboard/customer">Home</span>
         <span class="policies-nav">/ My Policies</span>
-      </div>
+      </div> -->
       <div class="policies-cnt" *ngIf="purchaseList.length > 0">
         <div class="policies-heading-cnt">
           <span class="policies-heading">My Policies ({{purchaseList.length}})</span>
@@ -11,21 +11,43 @@
         <div class="policy-item-cnt" *ngFor="let policy of purchaseList">
           <div class="policy-box">
             <div class="policy-details">
+              <div class="action-buttons">
+                <button mat-raised-button color="primary" (click)="makePayment(policy)">Payment</button>
+                <button mat-raised-button color="warn" (click)="cancelPolicy(policy)">Cancel policy</button>
+              </div>
+              <span>Policy ID: {{policy.policyId}}</span>
+              <span>Policy Type: {{policy.policyType}}</span>
               <span>Coverage Amount: {{policy.coverageAmount}}</span>
               <span>Policy Term: {{policy.tenure}} years</span>
-              <span>Policy Type: {{policy.policyType}}</span>
               <span>Payment Frequency: {{policy.premiumType}}</span>
-              <span>Policy ID: {{policy.purchaseId}}</span>
               <span>Created At: {{policy.purchaseDate | date:'short'}}</span>
-              <span>Customer Age: {{policy.customerAge}}</span>
-              <span>Agent Id: {{policy.agentId}}</span>
+              <!-- <span>Customer Age: {{policy.customerAge}}</span> -->
+              <!-- <span>Agent Id: {{policy.agentId}}</span> -->
+              <span>Policy Status: {{policy.status}}</span>
+
               <!-- <span class="policy-name">Policy Name: {{policy.policyName}}</span> -->
               <span class="premium-amount">Premium Amount: Rs. {{policy.premiumAmount}}</span>
             </div>
-            <div class="action-buttons">
-              <button mat-raised-button color="primary" (click)="makePayment(policy)">Payment</button>
-              <button mat-raised-button color="warn" (click)="cancelPolicy(policy)">Cancel</button>
+
+            <div class="payment-process" *ngIf="purchaseId === policy.purchaseId">
+              <div class="right-panel">
+                <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <label>Payment Type</label>
+                    <div class="payment-options">
+                      <button type="button" class="payment-option" [class.active]="paymentType === 'Credit Card'" (click)="setPaymentType('Credit Card')">Credit Card</button>
+                      <button type="button" class="payment-option" [class.active]="paymentType === 'Debit Card'" (click)="setPaymentType('Debit Card')">Debit Card</button>
+                      <button type="button" class="payment-option" [class.active]="paymentType === 'Net Banking'" (click)="setPaymentType('Net Banking')">Net Banking</button>
+                      <button type="button" class="payment-option" [class.active]="paymentType === 'UPI'" (click)="setPaymentType('UPI')">UPI</button>
+                    </div>
+                  </div>
+                  <div class="proceeedToPay">
+                  <button mat-raised-button color="primary" type="submit" >Proceed to Pay</button><!--(click)="receipt()"-->
+                  </div>
+                </form>
+              </div>
             </div>
+      
           </div>
         </div>
       </div>

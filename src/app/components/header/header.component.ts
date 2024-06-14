@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
   // drawerState:boolean=false
   // subscription!:Subscription
-  // searchString:string=''
+  searchString:string=''
   userRole : string ='' ;
 
   constructor(
@@ -39,6 +39,10 @@ export class HeaderComponent implements OnInit {
   logout(){
     localStorage.clear();
     location.reload();
+  }
+
+  handleSearchString() {
+    this.dataService.updateSearchString(this.searchString);
   }
 
 }

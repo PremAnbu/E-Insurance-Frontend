@@ -1,8 +1,15 @@
+.main-content{
+ display: flex;
+//  flex-direction: column;
+ justify-content: center;
+}
 .policies-main-cnt {
-    width: 74.8%;
-    margin-left: 174px;
+    width: 74%;
+    // margin-left: 174px;
     display: flex;
     flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
   }
   
   .title-nav {
@@ -81,4 +88,51 @@
   .delete-icon {
     width: 17px;
     height: 53px;
+  }
+
+  // -------------------
+  .payment-process{
+    //  border: 2px solid red;
+     width: 100%;
+     background-color: #e0e0e0;
+     border-radius: 5px;
+    //  height: ;
+  }
+.form-group{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+label{
+   font-size: 20px;
+   padding: 20px 0px 20px 0px;
+}
+}
+
+  .payment-options{
+
+  display: flex;
+  gap: 10px;
+  // border: 2px solid red;
+  width: 60%;
+  }
+  .payment-option{
+    flex: 1;
+    padding: 7px;
+    text-align: center;
+    // background: #e0e0e0;
+    border: none;
+    cursor: pointer;
+    // border-radius: 8px;
+  }
+  .payment-option.active {
+    background: #673ab7;
+    color: #fff;
+  }
+
+  .proceeedToPay{
+    display: flex;
+    // align-items: end;
+    justify-content: flex-end;
+    padding: 0px 20px 20px 0px;
   }

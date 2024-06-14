@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpserviceService } from 'src/app/services/httpservice.service';
 import { PolicyserviceService } from 'src/app/services/policyservice.service';
 import { UserserviceService } from 'src/app/services/userservice.service';
 
@@ -11,10 +12,11 @@ import { UserserviceService } from 'src/app/services/userservice.service';
 })
 export class PersonalDetailsFormComponent implements OnInit {
   personalDetailsForm!: FormGroup;
-  agents: string[] = ['Agent1  (Location)', 'Agent2  (Location)', 'Agent3  (Location)'];
+  agents: string[] = ['PremKumar  (Musheerabad)', 'Anbu  (Malakpet)', 'Sumithra  (Amberpet)'];
   age!: number;
   policyId!: number;
   userRole!: string;
+  allAgent:any
 
 
   constructor(
@@ -22,7 +24,8 @@ export class PersonalDetailsFormComponent implements OnInit {
     private router: Router, 
     private route: ActivatedRoute, 
     private policyService: PolicyserviceService,
-    private userService: UserserviceService
+    private userService: UserserviceService,
+    private httpService : HttpserviceService
   ) { }
 
   ngOnInit(): void {
@@ -49,7 +52,9 @@ export class PersonalDetailsFormComponent implements OnInit {
       }
     });
 
-    
+    this.httpService.getAllAgent().subscribe(res=>{
+      this.allAgent=res.data
+    })
   }
 
   calculateAge(birthday: string): number {
@@ -69,7 +74,7 @@ export class PersonalDetailsFormComponent implements OnInit {
       const personalDetailsPayload = {
         // customerId: nameId,
         policyId: this.policyId,
-        agentId: 1,
+        agentId: this.personalDetailsForm.value.agent,
         annualIncome: this.personalDetailsForm.value.annualIncome,
         firstName: this.personalDetailsForm.value.firstName,
         lastName: this.personalDetailsForm.value.lastName,
@@ -81,18 +86,23 @@ export class PersonalDetailsFormComponent implements OnInit {
 
       console.log(personalDetailsPayload);
 
-      this.policyService.addPersonalDetails(personalDetailsPayload).subscribe(
-        (response: any) => {
-          console.log('Personal details added successfully', response);
-          this.policyService.addPersonalDetails(personalDetailsPayload);
-          console.log(this.userRole);
+      // this.policyService.addPersonalDetails(personalDetailsPayload).subscribe(
+      //   (response: any) => {
+      //     console.log('Personal details added successfully', response);
+      //     this.policyService.addPersonalDetails(personalDetailsPayload);
+      //     console.log(this.userRole);
           
-          this.router.navigate(['premium', this.userRole], { queryParams: { policyId: this.policyId } });
-        },
-        (error: any) => { 
-          console.error('Error adding personal details', error);
-        }
-      );
+      //     this.router.navigate(['premium', this.userRole], { queryParams: { policyId: this.policyId } });
+      //   },
+      //   (error: any) => { 
+      //     console.error('Error adding personal details', error);
+      //   }
+      // );
     }
   }
+
+  receipt(){
+
+  }
+
 }

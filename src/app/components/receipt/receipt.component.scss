@@ -1,0 +1,55 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #000;
+    width: 50%;
+    margin: 0 auto;
+    background: #f9f9f9;
+    margin-top: 2%;
+    border-radius: 15px;
+  }
+  .heading{
+    display: flex;
+    justify-content: center;
+    span{
+    font-size: 200%;
+    color: rgb(169, 157, 25);
+    padding-bottom: 5%;
+   }
+   
+  }
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .form-group label {
+    width: 150px; /* Adjust width to align properly */
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-group div {
+    flex: 1; /* Take remaining space */
+    padding: 5px;
+    background: #fff;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    align-self: flex-start; /* Align button to the start */
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  

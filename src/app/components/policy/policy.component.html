@@ -1,5 +1,5 @@
 <div class="policy-main-cnt">
-    <div class="card" *ngFor="let item of policiesList">
+    <div class="card" *ngFor="let item of policiesList | search : searchString">
         <div class="card-header">
         <div class="header-content">
             <h2>{{item.policyType}} - {{item.policyName}}</h2>

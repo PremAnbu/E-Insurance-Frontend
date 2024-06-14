@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { DataserviceService } from 'src/app/services/dataservice.service';
 import { PolicyserviceService } from 'src/app/services/policyservice.service';
 
@@ -9,9 +10,11 @@ import { PolicyserviceService } from 'src/app/services/policyservice.service';
   styleUrls: ['./policy.component.scss']
 })
 export class PolicyComponent implements OnInit {
-  items = Array(5);
+  // items = Array(5);
   userRole: string = '';
   policiesList: any[] = [];
+  searchString:string=''  
+  subscription!:Subscription
 
   constructor(
     private dataService: DataserviceService, 
@@ -20,6 +23,7 @@ export class PolicyComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.subscription=this.dataService.currSearchString.subscribe(res=>this.searchString=res)
     this.dataService.userRoleState.subscribe((res: any) => {
       this.userRole = res;
       console.log('UserRole:', res);

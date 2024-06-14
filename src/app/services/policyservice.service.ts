@@ -38,8 +38,6 @@ export class PolicyserviceService {
   {
     return this.http.getAllPoliciesApi();
   }
-  
-
   addPersonalDetails(details: any) {
     return this.http.addPersonalDetails(details);
   }

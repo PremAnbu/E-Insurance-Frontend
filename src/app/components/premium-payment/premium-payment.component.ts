@@ -24,6 +24,8 @@ export class PremiumPaymentComponent implements OnInit {
   tenure!: number;
   premiumType!: string;
 
+  success:boolean=false
+
 
   constructor(private fb: FormBuilder, private policyService: PolicyserviceService
     ,private route: ActivatedRoute,private httpserviceService:HttpserviceService
@@ -99,9 +101,10 @@ export class PremiumPaymentComponent implements OnInit {
         premiumAmount:this.premiumAmount
       };
     this.httpserviceService.purchasePolicy(payload).subscribe(res=>{
-    
     })
-          // this.router.navigate(['dashboard', this.userRole, 'premium'],{ queryParams: { policyId: this.policyId } });
-  }
+         // this.router.navigate(['dashboard', this.userRole, 'premium'],{ queryParams: { policyId: this.policyId } });
+         this.calcPremium=false
+         this.success=true
+        }
   }
 }
